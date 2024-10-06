@@ -1,6 +1,7 @@
 import { createRequestHandler, logDevReady } from "@remix-run/cloudflare";
 import * as build from "@remix-run/dev/server-build";
 import { getLoadContext } from "./load-context";
+import { DrizzleTestDO } from "./app/do";
 
 const handleRemixRequest = createRequestHandler(build, process.env.NODE_ENV);
 
@@ -36,3 +37,5 @@ export default {
     }
   },
 } satisfies ExportedHandler<Env>;
+
+export { DrizzleTestDO };
