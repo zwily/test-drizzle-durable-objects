@@ -2,6 +2,7 @@
   "include": [
     "worker-configuration.d.ts",
     "remix.env.d.ts",
+    "env.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],

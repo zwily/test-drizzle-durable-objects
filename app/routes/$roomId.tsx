@@ -3,7 +3,6 @@ import type {
   LoaderFunctionArgs,
   ActionFunctionArgs,
 } from "@remix-run/cloudflare";
-import { type DrizzleTestDO } from "~/do";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData, Form } from "@remix-run/react";
 
@@ -14,9 +13,8 @@ export const loader = async ({ params, context }: LoaderFunctionArgs) => {
     throw new Response("Not Found", { status: 404 });
   }
 
-  const DO = context.cloudflare.env.DO as DurableObjectNamespace<DrizzleTestDO>;
-  const doId = DO.idFromName(roomId);
-  const doStub = DO.get(doId);
+  const doId = context.cloudflare.env.DO.idFromName(roomId);
+  const doStub = context.cloudflare.env.DO.get(doId);
 
   const messages = await doStub.getMessages();
 
@@ -44,9 +42,8 @@ export const action = async ({
     throw new Response("Bad Request", { status: 400 });
   }
 
-  const DO = context.cloudflare.env.DO as DurableObjectNamespace<DrizzleTestDO>;
-  const doId = DO.idFromName(roomId);
-  const doStub = DO.get(doId);
+  const doId = context.cloudflare.env.DO.idFromName(roomId);
+  const doStub = context.cloudflare.env.DO.get(doId);
 
   await doStub.postMessage(user, message);
 
