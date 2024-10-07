@@ -6,4 +6,5 @@ export const messagesTable = sqliteTable("messages", {
   createdAt: integer("created_at").default(sql`CURRENT_TIMESTAMP`),
   user: text("user"),
   message: text("message"),
+  updatedAt: integer("updated_at").default(sql`CURRENT_TIMESTAMP`),
 });

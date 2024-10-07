@@ -1,0 +1,18 @@
+[
+  {
+    "sql": [
+      "CREATE TABLE `messages` (\n\t`id` integer PRIMARY KEY NOT NULL,\n\t`created_at` integer DEFAULT CURRENT_TIMESTAMP,\n\t`user` text,\n\t`message` text\n);\n"
+    ],
+    "bps": true,
+    "folderMillis": 1728273591337,
+    "hash": "af30a3265b3c94aa1e3370b2355912bc815f4569a07cf60349cd0815576a3aea"
+  },
+  {
+    "sql": [
+      "ALTER TABLE `messages` ADD `updated_at` integer DEFAULT CURRENT_TIMESTAMP;"
+    ],
+    "bps": true,
+    "folderMillis": 1728273973822,
+    "hash": "c3bb45cebe7b2997e78ee913db4ad077c361f4198d6092695aacc598e15f810a"
+  }
+]
